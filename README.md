@@ -1,2 +1,5 @@
-# radarautonove
-Radar Autonove - notícias automotivas diárias do Brail e do mundo
+# Radar Autonove
+
+Notícias automotivas diárias do Brasil e do mundo, com leitura para o lojista de seminovos.
+
+Site: https://radarautonove.com.br
