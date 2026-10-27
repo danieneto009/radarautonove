@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Todas as edições · Radar Autonove</title>
+<meta name="description" content="Arquivo de todas as edições diárias do Radar Autonove: notícias automotivas do Brasil e do mundo.">
+<link rel="canonical" href="https://radarautonove.com.br/edicao/">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Todas as edições · Radar Autonove">
+<meta property="og:description" content="Arquivo de todas as edições diárias do Radar Autonove: notícias automotivas do Brasil e do mundo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://radarautonove.com.br/edicao/">
+<meta property="og:site_name" content="Radar Autonove">
+<meta property="og:locale" content="pt_BR">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Todas as edições · Radar Autonove", "url": "https://radarautonove.com.br/edicao/", "inLanguage": "pt-BR", "isPartOf": {"@type": "WebSite", "name": "Radar Autonove", "url": "https://radarautonove.com.br/"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>body{margin:0}
+/* Layout: placa Mercosul como cabeçalho, faixa de números do mês, feed por dia com filtros Brasil/Mundo */
+:root{
+  --bg:#eef1f5; --paper:#ffffff; --ink:#0f1a2b; --muted:#5a6678; --line:#d6dce5;
+  --plate:#003399; --plate-ink:#ffffff; --signal:#e8a400; --br:#0a8a4a; --world:#2a5bd7;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0d131c; --paper:#151d29; --ink:#e7ecf3; --muted:#9aa6b8; --line:#26313f;
+  --plate:#2a55c4; --plate-ink:#ffffff; --signal:#f2b632; --br:#3cc480; --world:#7aa0ff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d131c; --paper:#151d29; --ink:#e7ecf3; --muted:#9aa6b8; --line:#26313f;
+  --plate:#2a55c4; --plate-ink:#ffffff; --signal:#f2b632; --br:#3cc480; --world:#7aa0ff; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 56px}
+header.mast{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between}
+.plate{border:3px solid var(--ink);border-radius:10px;background:var(--paper);overflow:hidden;min-width:0;max-width:100%}
+.plate .band{background:var(--plate);color:var(--plate-ink);font:600 11px/1 var(--display);letter-spacing:.18em;text-transform:uppercase;padding:5px 12px;display:flex;justify-content:space-between;gap:16px}
+.plate h1{margin:0;padding:6px 18px 8px;font:800 clamp(30px,7vw,58px)/1 var(--display);letter-spacing:.06em;text-transform:uppercase;text-wrap:balance}
+.edition{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
+.edition strong{display:block;font:700 22px/1.1 var(--display);color:var(--ink);letter-spacing:.02em}
+.stats{margin-top:28px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.stat{background:var(--paper);padding:14px 16px;min-width:0}
+.stat .n{font:700 28px/1 var(--display);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.stat .d{font-size:12.5px;color:var(--muted);margin-top:4px}
+.stat .chg{font-family:var(--mono);font-size:12px;margin-left:6px}
+.up{color:var(--br)} .down{color:#c2410c}
+.controls{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.seg{display:flex;gap:4px;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:4px}
+.seg button{font:600 14px/1 var(--display);letter-spacing:.08em;text-transform:uppercase;border:0;background:transparent;color:var(--muted);padding:9px 14px;border-radius:5px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.seg button:focus-visible,#q:focus-visible,a:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
+#q{font:inherit;font-size:14px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);width:min(280px,100%)}
+.day{margin-top:30px}
+.day h2{font:700 15px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;display:flex;align-items:center;gap:10px}
+.day h2 a{color:inherit;text-decoration:none}.day h2 a:hover{color:var(--ink)}
+.day h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+article{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+article.lead{grid-column:1/-1;border-left:4px solid var(--signal)}
+.meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
+.tag{font:600 11px/1 var(--display);letter-spacing:.12em;text-transform:uppercase;padding:4px 7px;border-radius:4px;border:1px solid currentColor}
+.tag.br{color:var(--br)} .tag.mundo{color:var(--world)}
+article h3{margin:0;font:700 22px/1.15 var(--display);letter-spacing:.01em;text-wrap:balance}
+article.lead h3{font-size:28px}
+article p{margin:0;color:var(--ink);opacity:.9;max-width:68ch}
+.lojista{font-size:13.5px;background:color-mix(in srgb,var(--signal) 14%,transparent);border-radius:6px;padding:8px 10px}
+.lojista b{font-family:var(--display);letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+.src{margin-top:auto;font-size:13px}
+.src a{color:var(--plate);font-weight:600;text-decoration:none}
+:root[data-theme="dark"] .src a{color:var(--world)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .src a{color:var(--world)}}
+.src a:hover{text-decoration:underline}
+.empty{color:var(--muted);padding:30px 0;text-align:center}
+footer{margin-top:44px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:1fr}.edition{text-align:left}}
+
+.crumbs{font-size:13px;color:var(--muted);margin-top:22px}
+.crumbs a,.pager a,.arch a{color:var(--plate);font-weight:600;text-decoration:none}
+:root[data-theme="dark"] .crumbs a,:root[data-theme="dark"] .pager a,:root[data-theme="dark"] .arch a{color:var(--world)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .crumbs a,:root:not([data-theme="light"]) .pager a,:root:not([data-theme="light"]) .arch a{color:var(--world)}}
+.crumbs a:hover,.pager a:hover,.arch a:hover{text-decoration:underline}
+.plate-link{color:inherit;text-decoration:none}
+.pager{margin-top:30px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px}
+.arch{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:10px}
+.arch li{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:14px 18px;display:flex;flex-direction:column;gap:4px}
+.arch .when{font:700 18px/1.1 var(--display);letter-spacing:.04em;text-transform:uppercase}
+.arch .sub{font-size:13.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="mast">
+    <a class="plate-link" href="/"><div class="plate">
+      <div class="band"><span>BR · Mercosul</span><span>Notícias automotivas</span></div>
+      <h1>Radar Autonove</h1>
+    </div></a>
+    <div class="edition"><strong>8 edições</strong>Arquivo · Brasil e mundo</div>
+  </header>
+  <p class="crumbs"><a href="/">Início</a> › Edições</p>
+  <main><ul class="arch"><li><a class="when" href="/edicao/2026-10-27/">terça, 27 de outubro de 2026</a><span class="sub">13 notícias · Chery quer vender 500 mil carros por ano no Brasil até 2031, com Omoda &amp; Jaecoo no comando</span></li><li><a class="when" href="/edicao/2026-10-26/">segunda, 26 de outubro de 2026</a><span class="sub">14 notícias · BYD mira a liderança do mercado brasileiro até 2030 e quer dobrar Camaçari para 600 mil carros por ano</span></li><li><a class="when" href="/edicao/2026-10-25/">domingo, 25 de outubro de 2026</a><span class="sub">13 notícias · Dolphin Mini passa o Argo e pode ser o primeiro elétrico a liderar o mês entre os automóveis</span></li><li><a class="when" href="/edicao/2026-10-24/">sábado, 24 de outubro de 2026</a><span class="sub">14 notícias · MG IM6 inaugura a marca de luxo IM no Brasil a partir de R$ 368.990</span></li><li><a class="when" href="/edicao/2026-10-23/">sexta, 23 de outubro de 2026</a><span class="sub">14 notícias · Chevrolet reajusta oito modelos, de Onix a S10</span></li><li><a class="when" href="/edicao/2026-10-22/">quinta, 22 de outubro de 2026</a><span class="sub">14 notícias · Nova geração do BYD Dolphin Mini chega ao Brasil em 2028 e vai conviver com a atual</span></li><li><a class="when" href="/edicao/2026-10-21/">quarta, 21 de outubro de 2026</a><span class="sub">13 notícias · Financiamento de veículos tem o melhor setembro desde 2011</span></li><li><a class="when" href="/edicao/2026-10-20/">terça, 20 de outubro de 2026</a><span class="sub">12 notícias · Tiggo 5X é o carro que menos desvalorizou em um ano; Toyota coloca quatro no top 10</span></li></ul></main>
+  <footer>Resumos escritos a partir das fontes citadas; clique em cada link para ler a matéria completa. <a href="/">Edição de hoje</a> · <a href="/edicao/">Todas as edições</a></footer>
+</div>
+</body>
+</html>

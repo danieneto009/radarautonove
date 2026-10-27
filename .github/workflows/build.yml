@@ -1,0 +1,41 @@
+name: Gerar edições e sitemap
+
+# Roda sempre que as notícias do index.html mudam: recria as páginas
+# de edição diária (edicao/) e o sitemap.xml, e faz commit do resultado.
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - build.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-edicoes
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Gerar páginas e sitemap
+        run: python3 build.py
+      - name: Commit das mudanças
+        run: |
+          git config user.name "radar-bot"
+          git config user.email "radar-bot@users.noreply.github.com"
+          git add -A edicao sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Nada mudou."
+          else
+            git commit -m "Atualiza edições e sitemap"
+            git pull --rebase origin main
+            git push
+          fi

@@ -56,6 +56,7 @@ header.mast{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-co
 #q{font:inherit;font-size:14px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);width:min(280px,100%)}
 .day{margin-top:30px}
 .day h2{font:700 15px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;display:flex;align-items:center;gap:10px}
+.day h2 a{color:inherit;text-decoration:none}.day h2 a:hover{color:var(--ink)}
 .day h2::after{content:"";flex:1;height:1px;background:var(--line)}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 article{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:16px 18px;display:flex;flex-direction:column;gap:8px;min-width:0}
@@ -106,7 +107,7 @@ footer{margin-top:44px;font-size:12.5px;color:var(--muted);border-top:1px solid 
 
   <main id="feed"></main>
 
-  <footer>Resumos escritos a partir das fontes citadas; clique em cada link para ler a matéria completa. Atualização automática todo dia útil pela manhã.</footer>
+  <footer>Resumos escritos a partir das fontes citadas; clique em cada link para ler a matéria completa. Atualização automática todo dia útil pela manhã. <a href="/edicao/">Todas as edições</a></footer>
 </div>
 
 <script id="news-data" type="application/json">
@@ -244,7 +245,7 @@ footer{margin-top:44px;font-size:12.5px;color:var(--muted);border-top:1px solid 
     if(!keys.length){feed.innerHTML='<p class="empty">Nenhuma notícia encontrada para esse filtro.</p>';return}
     feed.innerHTML=keys.map(function(k){
       var arr=groups[k].sort(function(a,b){return (b.lead?1:0)-(a.lead?1:0)});
-      return '<section class="day"><h2>'+fmt(k)+'</h2><div class="grid">'+arr.map(function(n){
+      return '<section class="day"><h2><a href="/edicao/'+k+'/">'+fmt(k)+'</a></h2><div class="grid">'+arr.map(function(n){
         return '<article class="'+(n.lead?'lead':'')+'"><div class="meta"><span class="tag '+n.region+'">'+(n.region==='br'?'Brasil':'Mundo')+'</span><span>'+esc(n.cat)+'</span></div>'+
         '<h3>'+esc(n.title)+'</h3><p>'+esc(n.text)+'</p>'+
         (n.lojista?'<div class="lojista"><b>Para o lojista · </b>'+esc(n.lojista)+'</div>':'')+
